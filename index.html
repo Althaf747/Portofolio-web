@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Althaf | Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#ffffff",
+            secondary: "#00f5d4",
+          },
+          fontFamily: {
+            jetbrains: ["JetBrains Mono", "monospace"],
+            kindsans: ["'Kind Sans'", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body class="min-h-screen bg-gradient-to-br from-[#0B0F12] via-[#131E23] to-[#1A2C33] text-white">
+
+<!-- ===== NAVBAR (sticky, no absolute) ===== -->
+<header class="sticky top-0 z-50 bg-[#0B0F12]/60 backdrop-blur border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="h-16 flex items-center justify-between">
+      <!-- Brand -->
+      <a href="#" class="font-bold text-lg">Althaf</a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:block">
+        <ul class="flex items-center gap-8 text-sm">
+          <li><a href="#hero" class="hover:opacity-80">Home</a></li>
+          <li><a href="#about" class="hover:opacity-80">About</a></li>
+          <li><a href="#projects" class="hover:opacity-80">Project</a></li>
+          <li><a href="#contact" class="hover:opacity-80">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Toggle -->
+      <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-md hover:bg-white/10 focus:outline-none"
+              aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="sr-only">Menu</span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white mt-1.5"></span>
+        <span class="block w-6 h-0.5 bg-white mt-1.5"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Panel -->
+  <div id="mobile-nav" class="md:hidden hidden border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3">
+      <ul class="flex flex-col gap-3 text-sm">
+        <li><a href="#hero" class="block py-2 hover:opacity-80">Home</a></li>
+        <li><a href="#about" class="block py-2 hover:opacity-80">About</a></li>
+        <li><a href="#projects" class="block py-2 hover:opacity-80">Project</a></li>
+        <li><a href="#contact" class="block py-2 hover:opacity-80">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="scroll-mt-20">
+  <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold font-jetbrains mb-3">Hi, I'm Althaf</h1>
+    <h2 class="text-2xl md:text-3xl font-jetbrains opacity-90 mb-4">Junior Backend Developer</h2>
+    <p class="font-kindsans leading-relaxed opacity-70 max-w-3xl mx-auto">
+      I like building the stuff you don’t see — APIs, data models, background jobs — the quiet heroes of any app.
+      Most days, I’m learning something new, breaking it, fixing it, then Googling why it broke in the first place.
+    </p>
+    <div class="flex gap-4 items-center justify-center mt-8 font-jetbrains">
+      <a href="#" class="px-5 py-3 rounded-md hover:bg-teal-600 bg-secondary text-black">
+        Small things I’ve shipped
+      </a>
+      <a href="#" class="px-5 py-3 rounded-md bg-gray-100 hover:bg-gray-200 text-black">
+        download my CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="scroll-mt-20 px-6">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <!-- About Box -->
+    <div class="bg-secondary text-black p-8 rounded-lg text-center lg:text-left">
+      <h2 class="text-5xl lg:text-[64px] font-jetbrains font-extrabold leading-none">
+        About<br class="hidden lg:block"> Me
+      </h2>
+    </div>
+
+    <!-- About Text -->
+    <div class="text-base font-kindsans leading-relaxed">
+      <p class="mb-4">
+        Hi, I’m <span class="font-extrabold text-primary">Althaf Rizqullah</span> — an Informatics student in my final semester.
+        I'm still early in my journey as a developer, but I’ve been enjoying the process of learning and building real projects.
+      </p>
+      <p class="mb-4">
+        While I can work on both frontend and <span class="font-extrabold">backend</span>, I feel most comfortable on the <span class="font-extrabold">backend side</span> —
+        building APIs, working with databases, and recently exploring a bit of AI.
+      </p>
+      <p>
+        I know there’s still a lot to learn, but I’m excited to keep improving, solve real-world problems,
+        and collaborate with others along the way.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TECH STACKS ===== -->
+<section id="tech" class="w-full px-6 py-10">
+  <div class="container mx-auto flex flex-col lg:flex-row-reverse items-center justify-between gap-10">
+    
+    <!-- Title (on top in mobile, right on desktop) -->
+    <div class="text-center lg:text-right w-full lg:pr-12 lg:w-3/4">
+      <h2 class="text-4xl font-bold text-white">Tech <br /> Stacks</h2>
+    </div>
+
+    <!-- Swiper Slider (below in mobile, left on desktop) -->
+    <div class="w-full lg:w-3/4 lg:ml-40">
+      <div class="swiper techSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide rounded-lg bg-gray-700 text-white flex items-center justify-center h-64">
+            <svg class="mx-auto mt-5 lg:mt-3" width="64px" height="64px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" 
+              fill="#ffffff" stroke="#ffffff" stroke-width="0.00048000000000000007"><g 
+              id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" 
+              stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
+              <title>node-js</title> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" 
+              ata-name="invisible box"> <rect width="48" height="48" fill="none"></rect> </g> 
+              <g id="Q3_icons" data-name="Q3 icons"> <g> 
+              <path d="M42.3,11.8,25.7,2.4a4,4,0,0,0-3.4,0L5.7,11.8A3.4,3.4,0,0,0,4,14.7V33.3a3.4,3.4,0,0
+              ,0,1.7,2.9l4.4,2.5a7.2,7.2,0,0,0,3.8,1c3.1,0,4.9-1.9,4.9-5.1V16.3a.5.5,0,0,0-.5-.5H16.2a
+              .5.5,0,0,0-.5.5V34.6c0,1.5-1.5,2.9-3.9,1.7L7.2,33.7a.5.5,0,0,1-.2-.4V14.7a.8.8,0,0,1,.2-.5
+              L23.7,4.9h.6l16.5,9.3a.8.8,0,0,1,.2.5V33.3a.5.5,0,0,1-.2.4L24.3,43a.6.6,0,0,1-.6,0l-4.2-2.4
+              a.3.3,0,0,0-.4,0l-2.5,1.1c-.3.1-.7.2.1.7l5.6,3.1a3.1,3.1,0,0,0,3.4,0l16.6-9.3A3.4,3.4,0,0,0,
+              44,33.3V14.7A3.4,3.4,0,0,0,42.3,11.8Z"></path> <path d="M29.1,30.3c-4.4,0-5.3-1-5.7-3.1a.4.4
+              ,0,0,0-.4-.4H20.8a.4.4,0,0,0-.4.4c0,2.7,1.5,6,8.7,6,5.2,0,8.2-2,8.2-5.5s-2.4-4.5-7.5-5.1-5.6-1-5.6
+              -2.2.4-2.2,4.2-2.2,4.7.7,5.2,2.9a.5.5,0,0,0,.5.4h2.1l.4-.2a.4.4,0,0,0,.1-.3c-.3-3.9-3-5.7-8.3-5.7s
+              -7.5,2-7.5,5.2,2.8,4.5,7.3,5,5.9,1.2,5.9,2.3S32.6,30.3,29.1,30.3Z"></path> </g> </g> </g> </g></svg>
+          </div>
+          <div class="swiper-slide rounded-lg bg-gray-700 text-white flex items-center justify-center h-64">
+            <svg class="mx-auto mt-5 lg:mt-3" width="64px" height="64px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier"><title>file_type_light_prisma</title><path d="M25.21,24.21,12.739,27.928a.525.525,0,0,1-.667-.606L16.528,
+              5.811a.43.43,0,0,1,.809-.094l8.249,17.661A.6.6,0,0,1,25.21,24.21Zm2.139-.878L17.8,2.883h0A1.531,1.531,0,0,0,16.491,2a1.513,1.513,0,
+              0,0-1.4.729L4.736,19.648a1.592,1.592,0,0,0,.018,1.7l5.064,7.909a1.628,1.628,0,0,0,1.83.678l14.7-4.383a1.6,1.6,0,0,0,1-2.218Z" 
+              style="fill:#ffffff;fill-rule:evenodd"></path></g></svg>
+          </div>
+          <div class="swiper-slide rounded-lg bg-gray-700 text-white flex items-center justify-center h-64"> <svg class="mx-auto mt-5 lg:mt-3" fill="#ffffff" width="64px" height="64px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="0.00032">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> 
+                <path d="M21.875 7.568c-0.156 0-0.26 0.021-0.365 0.047v0.016h0.016c0.073 0.135 0.193 0.24 0.286 0.365 0.073 0.141 0.135 
+                0.286 0.203 0.427l0.021-0.021c0.125-0.089 0.188-0.229 0.188-0.443-0.052-0.063-0.063-0.13-0.109-0.188-0.052-0.089-0.167-0.135-0.24-0.203zM7.693 
+                25.161h-1.234c-0.042-2.083-0.167-4.042-0.359-5.88h-0.010l-1.88 5.88h-0.943l-1.865-5.88h-0.016c-0.135 1.76-0.224 3.724-0.26 5.88h-1.125c0.073-2.625 
+                0.255-5.083 0.547-7.375h1.531l1.781 5.417h0.010l1.797-5.417h1.458c0.323 2.688 0.516 5.146 0.573 7.375zM13.047 19.719c-0.5 2.729-1.167 4.714-1.984 5.948-0.646 0.953-1.349 1.432-2.115 
+                1.432-0.203 0-0.453-0.063-0.755-0.188v-0.656c0.151 0.021 0.323 0.036 0.516 0.036 0.359 0 0.646-0.104 0.865-0.297 0.26-0.24 0.391-0.51 0.391-0.807 
+                0-0.208-0.099-0.625-0.307-1.26l-1.349-4.208h1.214l0.969 3.146c0.219 0.719 0.313 1.214 0.271 1.5 0.536-1.417 0.906-2.969 1.115-4.646zM29.484 25.161h-3.51v-7.375h1.182v6.469h2.328zM25.057 
+                25.339l-1.354-0.667c0.12-0.099 0.234-0.208 0.339-0.333 0.578-0.672 0.865-1.677 0.865-3 0-2.443-0.958-3.661-2.875-3.661-0.938 0-1.672 0.307-2.198 0.927-0.573 0.677-0.865 1.677-0.865 2.995
+                0 1.297 0.255 2.245 0.766 2.854 0.469 0.542 1.172 0.818 2.115 0.818 0.349 0 0.672-0.042 0.964-0.13l1.766 1.031 0.484-0.833zM20.667 23.682c-0.302-0.479-0.448-1.25-0.448-2.313 0-1.859 0.563-2.786 
+                1.693-2.786 0.589 0 1.026 0.224 1.302 0.667 0.297 0.484 0.448 1.245 0.448 2.297 0 1.87-0.568 2.813-1.693 2.813-0.594 0-1.026-0.224-1.307-0.667zM18.458 23.12c0 0.625-0.229 1.141-0.693
+                1.536-0.458 0.401-1.068 0.604-1.844 0.604-0.724 0-1.417-0.229-2.099-0.688l0.318-0.635c0.583 0.292 1.109 0.438 1.589 0.438 0.443 0 0.792-0.099 1.042-0.292 0.25-0.198 0.401-0.474 0.401-0.823 
+                0-0.438-0.307-0.813-0.865-1.125-0.516-0.286-1.552-0.875-1.552-0.875-0.563-0.411-0.839-0.849-0.839-1.573 0-0.599 0.208-1.078 0.625-1.443 0.422-0.375 0.958-0.557 1.625-0.557 0.682 0 1.307 0.182 
+                1.87 0.547l-0.286 0.635c-0.479-0.203-0.953-0.307-1.417-0.307-0.38 0-0.672 0.094-0.875 0.276s-0.328 0.411-0.328 0.698c0 0.438 0.313 0.813 0.885 1.135 0.526 0.286 1.583 0.891 1.583 0.891 0.578 
+                0.406 0.865 0.844 0.865 1.557zM30.964 15.313c-0.714-0.016-1.266 0.057-1.729 0.255-0.13 0.052-0.344 0.052-0.365 0.219 0.073 0.073 0.083 0.188 0.146 0.286 0.109 0.177 0.292 0.417 0.464 0.542 0.188 
+                0.146 0.375 0.292 0.568 0.417 0.349 0.214 0.74 0.339 1.083 0.552 0.193 0.125 0.391 0.286 0.583 0.417 0.099 0.068 0.161 0.188 0.286 0.229v-0.026c-0.063-0.078-0.078-0.193-0.141-0.286-0.089-0.089-0.177
+                -0.167-0.266-0.255-0.26-0.349-0.578-0.651-0.927-0.901-0.286-0.193-0.911-0.464-1.026-0.792l-0.016-0.021c0.193-0.016 0.422-0.089 0.609-0.141 0.302-0.078 0.583-0.063 0.896-0.141 0.141-0.036 0.281-0.078 
+                0.427-0.125v-0.078c-0.161-0.161-0.281-0.38-0.448-0.531-0.453-0.391-0.953-0.776-1.469-1.094-0.281-0.182-0.635-0.297-0.932-0.448-0.104-0.052-0.286-0.078-0.344-0.167-0.161-0.198-0.255-0.453-0.37-0.688-0.255-0.49-0.505-1.031-0.729
+                -1.552-0.161-0.349-0.255-0.693-0.453-1.016-0.917-1.516-1.917-2.432-3.448-3.333-0.328-0.188-0.724-0.266-1.141-0.365-0.224-0.010-0.443-0.026-0.667-0.036-0.146-0.063-0.286-0.229-0.411-0.313-0.51-0.323-1.823-1.016-2.193-0.099-0.24 0.583 
+                0.354 1.151 0.563 1.443 0.151 0.208 0.344 0.438 0.453 0.667 0.063 0.156 0.078 0.318 0.141 0.479 0.141 0.391 0.276 0.828 0.464 1.193 0.099 0.188 0.203 0.385 0.328 0.552 0.073 0.099 0.198 0.141 0.224 0.302-0.125 0.182-0.135 0.448-0.203
+                0.667-0.323 1.010-0.198 2.255 0.255 3 0.146 0.224 0.484 0.714 0.938 0.526 0.401-0.161 0.313-0.667 0.427-1.115 0.026-0.109 0.010-0.177 0.063-0.25v0.021c0.13 0.25 0.255 0.49 0.37 0.74 0.271 0.438 0.755 0.891 1.156 1.193 0.214 0.161 0.38 
+                0.438 0.646 0.536v-0.026h-0.021c-0.057-0.078-0.13-0.115-0.203-0.177-0.161-0.161-0.339-0.359-0.469-0.536-0.37-0.5-0.703-1.052-0.995-1.62-0.146-0.281-0.271-0.583-0.385-0.859-0.052-0.104-0.052-0.266-0.141-0.318-0.135 0.193-0.333 0.359-0.427 
+                0.604-0.172 0.38-0.188 0.854-0.255 1.344-0.031 0.010-0.016 0-0.031 0.021-0.286-0.073-0.385-0.365-0.49-0.615-0.271-0.635-0.313-1.651-0.083-2.38 0.063-0.188 0.328-0.776 0.224-0.953-0.057-0.172-0.234-0.271-0.328
+                -0.406-0.12-0.167-0.24-0.38-0.323-0.568-0.214-0.5-0.318-1.052-0.552-1.552-0.104-0.229-0.292-0.469-0.443-0.682-0.172-0.24-0.359-0.411-0.49-0.693-0.047-0.099-0.109-0.26-0.036-0.365 0.016-0.073 0.052-0.099 0.125-0.12 
+                0.115-0.099 0.448 0.026 0.563 0.083 0.328 0.13 0.604 0.255 0.88 0.443 0.125 0.089 0.26 0.255 0.422 0.302h0.188c0.286 0.063 0.604 0.016 0.87 0.099 0.474 0.151 0.901 0.37 1.286 0.609 1.167 0.745 2.125 1.797 2.776 3.052 0.109 0.203 
+                0.156 0.391 0.255 0.604 0.182 0.443 0.417 0.885 0.604 1.307s0.365 0.849 0.635 1.198c0.135 0.188 0.667 0.286 0.911 0.38 0.177 0.083 0.453 0.156 0.609 0.25 0.307 0.188 0.609 0.401 0.896 0.609 0.146 0.099 0.589 
+                0.323 0.615 0.5z"></path> </g></svg>
+            </div>
+          <div class="swiper-slide rounded-lg bg-gray-700 text-white flex items-center justify-center h-64">
+            <svg class="mx-auto mt-5 lg:mt-3" width="64px" height="64px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" 
+            fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" 
+            stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+              <title>file_type_tailwind</title><path d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,
+              4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z" style="fill:#ffffff"></path>
+            </g></svg>
+          </div>
+          <div class="swiper-slide rounded-lg bg-gray-700 text-white flex items-center justify-center h-64"> <svg class="mx-auto mt-5 lg:mt-3" fill="#ffffff" width="64px" height="64px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" 
+            stroke="#ffffff" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+              <path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 
+              1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.412zM.002 
+              11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 
+              0 0 0 2.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 0 1-2.589 3.957 6.272 6.272 0 0 1-7.306-.933 6.575 6.575 0 0 1-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 
+              0 0 1 0 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z"></path></g></svg>
+          </div>
+          <div class="swiper-slide rounded-lg bg-gray-700 text-white flex items-center justify-center h-64">
+            <svg class="mx-auto mt-5 lg:mt-3" width="64px" height="64px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>javascript [#ffffff]</title> 
+              <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-420.000000, -7479.000000)" 
+                fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M379.328,7337.432 C377.583,7337.432 376.455,7336.6 375.905,7335.512 L375.905,7335.512 L377.435,7334.626 C377.838,7335.284 
+                  378.361,7335.767 379.288,7335.767 C380.066,7335.767 380.563,7335.378 380.563,7334.841 C380.563,7334.033 379.485,7333.717 378.724,7333.391 C377.368,7332.814 376.468,7332.089 376.468,7330.558 C376.468,7329.149 
+                  377.542,7328.075 379.221,7328.075 C380.415,7328.075 381.275,7328.491 381.892,7329.578 L380.429,7330.518 C380.107,7329.941 379.758,7329.713 379.221,7329.713 C378.67,7329.713 378.321,7330.062 378.321,7330.518 
+                  C378.321,7331.082 378.67,7331.31 379.476,7331.659 C381.165,7332.383 382.443,7332.952 382.443,7334.814 C382.443,7336.506 381.114,7337.432 379.328,7337.432 L379.328,7337.432 Z M375,7334.599 C375,7336.546 373.801,7337.575 
+                  372.136,7337.575 C370.632,7337.575 369.731,7337 369.288,7336 L369.273,7336 L369.266,7336 L369.262,7336 L370.791,7334.931 C371.086,7335.454 371.352,7335.825 371.996,7335.825 C372.614,7335.825 373,7335.512 373,7334.573 
+                  L373,7328 L375,7328 L375,7334.599 Z M364,7339 L384,7339 L384,7319 L364,7319 L364,7339 Z" id="javascript-[#ffffff]"> </path> </g> </g> </g> </g></svg>
+          </div>
+        </div>
+        <!-- Pagination & Navigation -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    
+  </div>
+  
+</section>
+<!-- Project Showcase Section -->
+<section id="projects" class="w-full px-6 py-20 -mb-10">
+  <div class="container mx-auto flex flex-col items-center justify-between gap-10">
+    
+       <!-- Title -->
+    <div class="text-center  w-full lg:w-3/4">
+      <h2 class="text-4xl font-bold text-white">Things I've Shipped </h2>
+    </div>
+
+    <!-- Project Showcase Swiper -->
+    <div class="w-full lg:w-3/4">
+      <div class="swiper projectSwiper">
+        <div class="swiper-wrapper">
+          <!-- Project Cards -->
+          <div class="swiper-slide mb-2 bg-gray-700 text-white flex flex-col items-center justify-center p-6 rounded-xl shadow-lg ">
+            <img src="./images/p1.jpeg" alt="" class="rounded-lg mb-5">
+            <h1>Airnav - Organization & Personal Administration Module</h1>
+            <p class="text-sm text-gray-300">Developed during my internship at Airnav Indonesia, focusing on two HR modules to streamline organizational structure and employee data management.</p>
+          </div>
+          <div class="swiper-slide bg-gray-700 text-white flex flex-col items-center justify-center p-6 rounded-xl shadow-lg ">
+              <img src="./images/p2.png" alt="" class="rounded-lg mb-5">
+            <h1>Fitspace - Sports venue information and booking platform</h1>
+            <p class="text-sm text-gray-300">platform untuk menemukan dan memesan tempat olahraga dengan mudah, cepat, dan aman.
+Pengguna dapat membandingkan harga, lokasi, fasilitas, hingga membaca ulasan sebelum booking.
+Hadir sebagai solusi praktis yang mendukung gaya hidup sehat dan interaksi sosial melalui olahraga.</p>
+          </div>
+          
+        </div>
+        <!-- Pagination & Navigation -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+ 
+    
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="scroll-mt-20 w-full px-6 py-20">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-4xl font-bold mb-2">Contact Us</h2>
+      <p class="text-gray-400">Have questions or just want to say hi? We'd love to hear from you!</p>
+    </div>
+
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="flex flex-col">
+        <label for="name" class="mb-1 text-sm font-medium">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name"
+               class="p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-primary" required />
+      </div>
+      <div class="flex flex-col">
+        <label for="email" class="mb-1 text-sm font-medium">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com"
+               class="p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-primary" required />
+      </div>
+      <div class="flex flex-col md:col-span-2">
+        <label for="message" class="mb-1 text-sm font-medium">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Write your message..."
+                  class="p-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-primary resize-none" required></textarea>
+      </div>
+      <div class="md:col-span-2 text-center">
+        <button type="submit"
+                class="bg-green-500 hover:bg-green-600 transition duration-200 text-white font-semibold py-3 px-6 rounded-lg">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-gray-950 text-primary py-12 px-6">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div>
+      <h3 class="text-xl font-bold text-primary mb-2">Althaf</h3>
+      <p class="text-sm text-gray-400">.</p>
+    </div>
+    <div>
+      <h4 class="text-lg font-semibold mb-3 text-primary">Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#hero" class="hover:text-primary">Home</a></li>
+        <li><a href="#projects" class="hover:text-primary">Projects</a></li>
+        <li><a href="#tech" class="hover:text-primary">Tech Stacks</a></li>
+        <li><a href="#contact" class="hover:text-primary">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-lg font-semibold mb-3 text-primary">Follow Me</h4>
+      <div class="flex space-x-4 text-sm">
+        <a href="https://github.com/Althaf747" class="hover:text-white" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://linkedin.com/" class="hover:text-white" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:althaf8747@gmail.com" class="hover:text-white">Email</a>
+      </div>
+    </div>
+  </div>
+  <div class="mt-10 text-center text-sm text-gray-500">
+    &copy; 2025 Althaf Rizqullah. All rights reserved.
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // Tech Stack Swiper
+  var techSwiper = new Swiper(".techSwiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    pagination: {
+      el: ".techSwiper .swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".techSwiper .swiper-button-next",
+      prevEl: ".techSwiper .swiper-button-prev",
+    },
+    breakpoints: {
+      320: { slidesPerView: 1 },
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 4 },
+      1280: { slidesPerView: 5 },
+    },
+  });
+
+  // Project Showcase Swiper
+  var projectSwiper = new Swiper(".projectSwiper", {
+    slidesPerView: 2,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".projectSwiper .swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".projectSwiper .swiper-button-next",
+      prevEl: ".projectSwiper .swiper-button-prev",
+    },
+    breakpoints: {
+      320: { slidesPerView: 1 },
+      640: { slidesPerView: 1 },
+      1024: { slidesPerView: 1 },
+      1280: { slidesPerView: 1 },
+    },
+  });
+</script>
+</body>
+</html>
